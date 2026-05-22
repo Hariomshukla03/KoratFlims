@@ -108,8 +108,7 @@ const FinalBooking = () => {
     const getStatusColor = status => {
       switch (status?.toLowerCase()) {
         case 'complete':
-        case 'converted':
-        case 'approved':
+        case 'confirm':
           return '#22C55E';
 
         case 'pending':

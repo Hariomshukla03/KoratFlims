@@ -23,27 +23,105 @@ import RNExitApp from 'react-native-exit-app';
 const {width} = Dimensions.get('window');
 
 const MENU_ITEMS = [
-  { title: 'Party Master',      icon: 'account-group',                  color: '#4B7BEC', screen: 'PartyScreen' },
-  { title: 'Item Master',       icon: 'cube-outline',                   color: '#FF6B6B', screen: 'ItemScreen' },
-  { title: 'Product Master',    icon: 'package-variant',                color: '#FFD93D', screen: 'ProdScreen' },
-  { title: 'Staff Master',      icon: 'account-tie',                    color: '#6BCB77', screen: 'StaffScreen' },
-  { title: 'Quotation',         icon: 'file-document-outline',          color: '#FF6AD5', screen: 'QuotationScreen' },
-  { title: 'Sales Bill',        icon: 'receipt',                        color: '#45AAF2', screen: 'Sale' },
-  { title: 'Final Booking',     icon: 'calendar-check-outline',         color: '#20BF6B', screen: 'FinalBooking' },
-  { title: 'Booking Staff',     icon: 'account-multiple-check-outline', color: '#A55EEA', screen: 'BookingStaff' },
-  { title: 'Booking Payment',   icon: 'credit-card-outline',            color: '#F7B731', screen: 'Payment' },
-  { title: 'Appointment',       icon: 'calendar-clock-outline',         color: '#777718',   screen: 'Appointment' },
-  { title: 'Program',           icon: 'clipboard-list',                 color: '#8B5CF6',   screen: '',  },
-  { title: 'Package',           icon: 'gift-outline',                   color: '#FA8231', screen: 'Package' },
-  { title: 'Manage Expense',    icon: 'cash-multiple',                  color: '#9d13a7b4', screen: 'ManageExpense' },
-  { title: 'Expense Report',    icon: 'file-chart-outline',             color: '#4F46E5',   screen: 'ExpenseReport' },
-  { title: 'Staff Payment',     icon: 'account-cash-outline',           color: '#F59E0B',   screen: '',  },
-  { title: 'Income Entry',      icon: 'cash-plus',                      color: '#F43F5E',   screen: 'IncomeEntry' },
-  { title: 'Expense Entry',     icon: 'cash-minus',                     color: '#06B6D4',   screen: '',  },
-  { title: 'Income / Expense',  icon: 'chart-areaspline',               color: '#F97316',   screen: '',},
+  {
+    title: 'Party Master',
+    icon: 'account-group',
+    color: '#4B7BEC',
+    screen: 'PartyScreen',
+  },
+  {
+    title: 'Item Master',
+    icon: 'cube-outline',
+    color: '#FF6B6B',
+    screen: 'ItemScreen',
+  },
+  {
+    title: 'Product Master',
+    icon: 'package-variant',
+    color: '#FFD93D',
+    screen: 'ProdScreen',
+  },
+  {
+    title: 'Staff Master',
+    icon: 'account-tie',
+    color: '#6BCB77',
+    screen: 'StaffScreen',
+  },
+  {
+    title: 'Quotation',
+    icon: 'file-document-outline',
+    color: '#FF6AD5',
+    screen: 'QuotationScreen',
+  },
+  {title: 'Sales Bill', icon: 'receipt', color: '#45AAF2', screen: 'Sale'},
+  {
+    title: 'Final Booking',
+    icon: 'calendar-check-outline',
+    color: '#20BF6B',
+    screen: 'FinalBooking',
+  },
+  {
+    title: 'Booking Staff',
+    icon: 'account-multiple-check-outline',
+    color: '#A55EEA',
+    screen: 'BookingStaff',
+  },
+  {
+    title: 'Booking Payment',
+    icon: 'credit-card-outline',
+    color: '#F7B731',
+    screen: 'Payment',
+  },
+  {
+    title: 'Appointment',
+    icon: 'calendar-clock-outline',
+    color: '#777718',
+    screen: 'Appointment',
+  },
+  {title: 'Program', icon: 'clipboard-list', color: '#8B5CF6', screen: ''},
+  {title: 'Package', icon: 'gift-outline', color: '#FA8231', screen: 'Package'},
+  {
+    title: 'Manage Expense',
+    icon: 'cash-multiple',
+    color: '#9d13a7b4',
+    screen: 'ManageExpense',
+  },
+  {
+    title: 'Expense Report',
+    icon: 'file-chart-outline',
+    color: '#4F46E5',
+    screen: 'ExpenseReport',
+  },
+  {
+    title: 'Staff Payment',
+    icon: 'account-cash-outline',
+    color: '#F59E0B',
+    screen: '',
+  },
+  {
+    title: 'Income Entry',
+    icon: 'cash-plus',
+    color: '#F43F5E',
+    screen: 'IncomeEntry',
+  },
+  {title: 'Expense Entry', icon: 'cash-minus', color: '#06B6D4', screen: ''},
+  {
+    title: 'Income / Expense',
+    icon: 'chart-areaspline',
+    color: '#F97316',
+    screen: '',
+  },
 ];
 
-const ConfirmModal = ({visible, title, message, confirmLabel, confirmColor, onCancel, onConfirm}) => (
+const ConfirmModal = ({
+  visible,
+  title,
+  message,
+  confirmLabel,
+  confirmColor,
+  onCancel,
+  onConfirm,
+}) => (
   <Modal transparent visible={visible} animationType="fade">
     <Pressable
       onPress={onCancel}
@@ -61,17 +139,16 @@ const ConfirmModal = ({visible, title, message, confirmLabel, confirmColor, onCa
           borderRadius: 14,
           padding: 20,
         }}>
-        <Text style={{
-          fontSize: 20,
-          fontFamily: fonts.bold,
-          marginBottom: 18,
-          color: '#000',
-        }}>
+        <Text
+          style={{
+            fontSize: 20,
+            fontFamily: fonts.bold,
+            marginBottom: 18,
+            color: '#000',
+          }}>
           {title}
         </Text>
-        <Text style={{color: '#555', marginBottom: 20}}>
-          {message}
-        </Text>
+        <Text style={{color: '#555', marginBottom: 20}}>{message}</Text>
         <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
           <TouchableOpacity
             onPress={onCancel}
@@ -87,7 +164,12 @@ const ConfirmModal = ({visible, title, message, confirmLabel, confirmColor, onCa
               backgroundColor: '#FFFFFF',
             }}
             activeOpacity={0.8}>
-            <Text style={{color: '#344054', fontFamily: fonts.semiBold, fontSize: 14}}>
+            <Text
+              style={{
+                color: '#344054',
+                fontFamily: fonts.semiBold,
+                fontSize: 14,
+              }}>
               Cancel
             </Text>
           </TouchableOpacity>
@@ -104,7 +186,12 @@ const ConfirmModal = ({visible, title, message, confirmLabel, confirmColor, onCa
               minWidth: 70,
             }}
             activeOpacity={0.8}>
-            <Text style={{color: '#FFFFFF', fontFamily: fonts.semiBold, fontSize: 14}}>
+            <Text
+              style={{
+                color: '#FFFFFF',
+                fontFamily: fonts.semiBold,
+                fontSize: 14,
+              }}>
               {confirmLabel}
             </Text>
           </TouchableOpacity>
@@ -115,44 +202,57 @@ const ConfirmModal = ({visible, title, message, confirmLabel, confirmColor, onCa
 );
 
 // Layout constants
-const LOGO_SIZE   = 92;
+const LOGO_SIZE = 92;
 const HERO_HEIGHT = 138;
-const CURVE_H     = 24;
+const CURVE_H = 24;
 
 const AdminDash = () => {
   const navigation = useNavigation();
   const [logoutVisible, setLogoutVisible] = useState(false);
-  const [exitVisible,   setExitVisible]   = useState(false);
+  const [exitVisible, setExitVisible] = useState(false);
 
-  const fadeAnim  = useRef(new Animated.Value(0)).current;
-  const slideUp   = useRef(new Animated.Value(40)).current;
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const slideUp = useRef(new Animated.Value(40)).current;
   const logoScale = useRef(new Animated.Value(0.5)).current;
 
   useEffect(() => {
     Animated.parallel([
       Animated.timing(fadeAnim, {
-        toValue: 1, duration: 480,
-        easing: Easing.out(Easing.ease), useNativeDriver: true,
+        toValue: 1,
+        duration: 480,
+        easing: Easing.out(Easing.ease),
+        useNativeDriver: true,
       }),
       Animated.timing(slideUp, {
-        toValue: 0, duration: 480,
-        easing: Easing.out(Easing.cubic), useNativeDriver: true,
+        toValue: 0,
+        duration: 480,
+        easing: Easing.out(Easing.cubic),
+        useNativeDriver: true,
       }),
       Animated.spring(logoScale, {
-        toValue: 1, friction: 5, tension: 90, useNativeDriver: true,
+        toValue: 1,
+        friction: 5,
+        tension: 90,
+        useNativeDriver: true,
       }),
     ]).start();
   }, []);
 
   useFocusEffect(
     useCallback(() => {
-      const handleBack = () => { setExitVisible(true); return true; };
+      const handleBack = () => {
+        setExitVisible(true);
+        return true;
+      };
       const sub = BackHandler.addEventListener('hardwareBackPress', handleBack);
       return () => sub.remove();
     }, []),
   );
 
-  const handleExit   = () => { setExitVisible(false); RNExitApp.exitApp(); };
+  const handleExit = () => {
+    setExitVisible(false);
+    RNExitApp.exitApp();
+  };
   const handleLogout = async () => {
     await AsyncStorage.clear();
     navigation.reset({index: 0, routes: [{name: 'LoginScreen'}]});
@@ -187,11 +287,8 @@ const AdminDash = () => {
 
       {/* ── FLOATING LOGO — centred, half-in half-out of orange ── */}
       <Animated.View
-        style={[
-          styles.logoFloat,
-          {transform: [{scale: logoScale}]},
-        ]}>
-        <View style={[styles.logoRing,]}>
+        style={[styles.logoFloat, {transform: [{scale: logoScale}]}]}>
+        <View style={[styles.logoRing]}>
           <Image
             source={require('/KoratFlims/assets/Images/KR.png')}
             style={styles.logoImg}
@@ -209,7 +306,6 @@ const AdminDash = () => {
       <ScrollView
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}>
-
         <Animated.View
           style={[
             styles.gridCard,
@@ -222,14 +318,24 @@ const AdminDash = () => {
               return (
                 <TouchableOpacity
                   key={index}
-                  style={[styles.gridItem, isDisabled && styles.gridItemDisabled]}
-                  onPress={() => { if (item.screen && !isDisabled) navigation.navigate(item.screen); }}
+                  style={[
+                    styles.gridItem,
+                    isDisabled && styles.gridItemDisabled,
+                  ]}
+                  onPress={() => {
+                    if (item.screen && !isDisabled)
+                      navigation.navigate(item.screen);
+                  }}
                   disabled={isDisabled}
                   activeOpacity={0.55}>
                   <View style={[styles.iconWrap, {backgroundColor: ic + '18'}]}>
                     <Icon name={item.icon} size={22} color={ic} />
                   </View>
-                  <Text style={[styles.itemLabel, isDisabled && styles.itemLabelDisabled]}>
+                  <Text
+                    style={[
+                      styles.itemLabel,
+                      isDisabled && styles.itemLabelDisabled,
+                    ]}>
                     {item.title}
                   </Text>
                 </TouchableOpacity>
@@ -237,7 +343,6 @@ const AdminDash = () => {
             })}
           </View>
         </Animated.View>
-
       </ScrollView>
 
       <ConfirmModal
@@ -322,7 +427,6 @@ const styles = StyleSheet.create({
     top: HERO_HEIGHT + CURVE_H - LOGO_SIZE / 2,
     alignSelf: 'center',
     zIndex: 20,
-
   },
   logoRing: {
     width: LOGO_SIZE,
@@ -339,12 +443,11 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     alignItems: 'center',
     justifyContent: 'center',
-    borderBottomColor:"#F05A28",
-  borderBottomWidth:2.5
-
+    borderBottomColor: '#F05A28',
+    borderBottomWidth: 2.5,
   },
   logoImg: {
-    width: LOGO_SIZE - 6,   // inset by border width so it never bleeds
+    width: LOGO_SIZE - 6, // inset by border width so it never bleeds
     height: LOGO_SIZE - 6,
     borderRadius: (LOGO_SIZE - 6) / 2,
   },
@@ -437,15 +540,7 @@ const styles = StyleSheet.create({
   },
 });
 
-
-
-
-
-
 /////////////////////////////////////////////////////////////////////////////////
-
-
-
 
 // import {
 //   View,

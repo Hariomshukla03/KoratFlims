@@ -533,7 +533,8 @@ const AppointmentForm = ({route}) => {
             visible={showPartyForm}
             animationType="slide"
             transparent={true}
-            onRequestClose={() => setShowPartyForm(false)}>
+            onRequestClose={() => setShowPartyForm(false)}
+            >
             <TouchableWithoutFeedback onPress={() => setShowPartyForm(false)}>
               <View style={modalStyles.overlay}>
                 <TouchableWithoutFeedback>

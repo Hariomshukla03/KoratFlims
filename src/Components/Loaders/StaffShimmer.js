@@ -6,7 +6,7 @@ import LinearGradient from 'react-native-linear-gradient';
 const StaffShimmer = () => {
   return (
     <View style={styles.mainContainer}>
-      {[1, 2, 3, 4, 5,6,7,8].map((item) => (
+      {[1, 2, 3, 4, 5,6,].map((item) => (
         <View
           key={item}
           style={styles.rowContainer}
